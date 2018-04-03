@@ -30,6 +30,7 @@ class BurgerBuilder extends Component {
   }
 
   componentDidMount () {
+    console.log(this.props);
     axios.get('https://my-react-burger-81155.firebaseio.com/ingredients.json')
       .then(response => {
         this.setState({ingredients: response.data});
@@ -68,29 +69,30 @@ class BurgerBuilder extends Component {
   };
 
   purchaseContinueHandler = () => {
-    // alert('You continue!');
-    this.setState({ loading: true });
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice, // In prod, this should be calculated on server side so user can't manipulate this before sending!
-      customer: {
-        name: 'Joe Smith',
-        address: {
-          street: 'Test st.',
-          zipCode: '12345',
-          country: 'USA'
-        },
-        email: 'joe.smith@somecompany.com'
-      },
-      deliveryMethod: 'fastest'
-    };
-    axios.post('/orders.json', order)
-      .then(response => {
-        this.setState({ loading: false, purchasing: false });
-      })
-      .catch(error => {
-        this.setState({ loading: false, purchasing: false });
-      });
+    // // alert('You continue!');
+    // this.setState({ loading: true });
+    // const order = {
+    //   ingredients: this.state.ingredients,
+    //   price: this.state.totalPrice, // In prod, this should be calculated on server side so user can't manipulate this before sending!
+    //   customer: {
+    //     name: 'Joe Smith',
+    //     address: {
+    //       street: 'Test st.',
+    //       zipCode: '12345',
+    //       country: 'USA'
+    //     },
+    //     email: 'joe.smith@somecompany.com'
+    //   },
+    //   deliveryMethod: 'fastest'
+    // };
+    // axios.post('/orders.json', order)
+    //   .then(response => {
+    //     this.setState({ loading: false, purchasing: false });
+    //   })
+    //   .catch(error => {
+    //     this.setState({ loading: false, purchasing: false });
+    //   });
+    this.props.history.push('./checkout');
   };
 
   addIngredientHandler = (type) => {
