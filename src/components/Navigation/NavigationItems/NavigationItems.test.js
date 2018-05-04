@@ -8,7 +8,7 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 configure({adapter: new Adapter()});
 let wrapper;
-describe('<Navigation Items >', () => {
+describe('<NavigationItems />', () => {
   beforeEach(() => {
     wrapper = shallow(<NavigationItems />);
   });
@@ -22,7 +22,7 @@ describe('<Navigation Items >', () => {
     expect(wrapper.find(NavigationItem)).toHaveLength(3);
   });
 
-  it('should shoulc contain Logout <NavigationItem /> element if authenticated', () => {
+  it('should contain Logout <NavigationItem /> element if authenticated', () => {
     wrapper.setProps({ isAuthenticated: true });
     expect(wrapper.contains(<NavigationItem link="/logout" >Logout</NavigationItem>)).toEqual(true);
   });
