@@ -2,6 +2,6 @@
 
 Technologies used include React, Redux, HTML, CSS Modules, Node.js, Firebase.
 
-[See this app live!](https://my-burger-builder.herokuapp.com)
+[See this app live!](https://lntellimed.github.io/)
 
 ![alt text](screenshots/burger-builder.png "Burger Builder")
